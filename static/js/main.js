@@ -37,6 +37,7 @@ var imgList = [
     "images/img_1.png",
     "images/img_2.png"
 ];
+var group = ["web","design","game","pm","lab","android","ios"];
 var contextBg;
 var contextBgF;
 var hasInitRocket = false;
@@ -125,7 +126,10 @@ $(document).ready(function(){
                 if(slideIndex === 0 && direction === "left"){
                     //return(false);
                 }else{
-                    if(hasInitRocket === true){document.querySelector("div.animation").classList.add("hide");}
+                    if(hasInitRocket === true){
+                        document.querySelector("div.animation").classList.add("hide");
+                        document.querySelector("div.animation>div").className = "undefined";
+                    }
                     if(direction === "right"){
                         rotateNext();
                     }else{
@@ -145,12 +149,15 @@ $(document).ready(function(){
                             });
                             hasInitRocket = true;
                             //animationRocket.play();
-                            animationRocket.onComplete = function(){};
+                            animationRocket.onComplete = function(){
+                                console.log("aaa");
+                            };
                         }else{
                             clearTimeout(timeoutHandle);
                             timeoutHandle = setTimeout(function(){
                                 document.querySelector("div.animation").classList.remove("hide");
                                 animationRocket.goToAndPlay(0);
+                                document.querySelector("div.animation>div").className = group[Math.abs(rotateNow%9)-1];
                             },500);
                         }
                     }
@@ -158,14 +165,19 @@ $(document).ready(function(){
                         if(hasInitRocket){
                             clearTimeout(timeoutHandle);
                             timeoutHandle = setTimeout(function(){
+
                                 document.querySelector("div.animation").classList.add("hide");
+                                document.querySelector("div.animation>div").className = group[Math.abs(rotateNow%9)-1];
                             },500);
                         }
                     }else{
+
                         clearTimeout(timeoutHandle);
                         timeoutHandle = setTimeout(function(){
+                            document.querySelector("div.animation>div").className = "pm";
                             document.querySelector("div.animation").classList.remove("hide");
                             animationRocket.goToAndPlay(0);
+                            document.querySelector("div.animation>div").className = group[Math.abs(rotateNow%9)-1];
                         },500);
                     }
                     return(true);
