@@ -23,6 +23,10 @@ window.cancelAnimFrame = (function(){
 })();
 
 var imgList = [
+    "images/img_0.png",
+    "images/img_1.png",
+    "images/img_2.png",
+    "images/img_4.png",
     "static/img/logo.png",
     "static/img/stars.png",
     "static/img/back.png",
@@ -33,9 +37,14 @@ var imgList = [
     "static/img/android.png",
     "static/img/lab.png",
     "static/img/pm.png",
-    "images/img_0.png",
-    "images/img_1.png",
-    "images/img_2.png"
+    "static/img/text/PM.png",
+    "static/img/text/Design.png",
+    "static/img/text/Game.png",
+    "static/img/text/web.png",
+    "static/img/text/Lab.png",
+    "static/img/text/ios.png",
+    "static/img/text/Android.png"
+
 ];
 var group = ["web","design","game","pm","lab","android","ios"];
 var contextBg;
