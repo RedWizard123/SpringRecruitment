@@ -1,6 +1,17 @@
 /**
  * Created by faraway on 17-2-18.
  */
+browserRedirect();
+console.warn("联创团队WEB组欢迎你！");
+console.warn("制作者：Web-洪志远");
+wx.config({
+    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '', // 必填，公众号的唯一标识
+    timestamp: Date.now(), // 必填，生成签名的时间戳
+    nonceStr: '', // 必填，生成签名的随机串
+    signature: '',// 必填，签名，见附录1
+    jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+});
 window.requestAnimFrame = (function(){
     return  window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
@@ -122,7 +133,7 @@ $(document).ready(function(){
         scrollingSpeed: 500,
         lazyLoading: true,
         controlArrows: false,
-        onLeave: function(index, nextIndex, direction){if((index === 0 && nextIndex === 1 )){return(false);}},
+        onLeave: function(index, nextIndex, direction){if((index === 2 && nextIndex === 1)){return false;}},
         afterLoad: function(anchorLink, index){},
         afterRender: function(){},
         afterResize: function(){},
@@ -158,9 +169,7 @@ $(document).ready(function(){
                             });
                             hasInitRocket = true;
                             //animationRocket.play();
-                            animationRocket.onComplete = function(){
-                                console.log("aaa");
-                            };
+                            animationRocket.onComplete = function(){};
                         }else{
                             clearTimeout(timeoutHandle);
                             timeoutHandle = setTimeout(function(){
@@ -247,6 +256,69 @@ $(document).ready(function(){
         var animals = document.querySelector("div.planet-animals");
         animals.style.transform = "rotateZ("+(rotateNow)*40+"deg)";
     });
+    desc = "你有一封来自联创火箭的邀请函";
+    imgURL = 'http://hr.hustunique.com/static/img/logo.png';
+    wx.onMenuShareTimeline({
+        title: document.title, // 分享标题
+        link: window.location.href, // 分享链接
+        imgUrl: imgURL, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+    wx.onMenuShareAppMessage({
+        title: document.title, // 分享标题
+        desc: desc, // 分享描述
+        link: window.location.href, // 分享链接
+        imgUrl: imgURL, // 分享图标
+        type: '', // 分享类型,music、video或link，不填默认为link
+        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        success: function () {
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+    wx.onMenuShareQQ({
+        title: document.title, // 分享标题
+        desc: desc, // 分享描述
+        link: window.location.href, // 分享链接
+        imgUrl: imgURL, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+    wx.onMenuShareWeibo({
+        title: document.title, // 分享标题
+        desc: desc, // 分享描述
+        link: window.location.href, // 分享链接
+        imgUrl: imgURL, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+    wx.onMenuShareQZone({
+        title: document.title, // 分享标题
+        desc: desc, // 分享描述
+        link: window.location.href, // 分享链接
+        imgUrl: imgURL, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
 });
 function showBody(){
     loadingAnimLoop.destroy();
@@ -270,11 +342,26 @@ function showBody(){
 function rotateNext(){
     var animals = document.querySelector("div.planet-animals");
     animals.style.transform = "rotateZ("+(--rotateNow)*40+"deg)";
-    console.log(rotateNow);
 }
 function rotatePre(){
 
     var animals = document.querySelector("div.planet-animals");
     animals.style.transform = "rotateZ("+(++rotateNow)*40+"deg)";
-    console.log(rotateNow);
 }
+function browserRedirect() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+
+    } else {
+       window.location.href = "https://mp.weixin.qq.com/s?__biz=MjM5OTAzNjU4MA==&mid=2649605020&idx=1&sn=6635620d01a1f229158b9563fdc8d6f4&chksm=bed8f05789af79411dee8dbcf69111e09d57ab300c96746a4289505d2ee26a77dcefe2c95fbf&pass_ticket=OWIy0Y9it66XLqZbvSHxM45hRtr3Ij2MPEzjd3OkyYg%3D#rd";
+    }
+}
+

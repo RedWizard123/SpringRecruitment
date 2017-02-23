@@ -113,12 +113,12 @@ div.main-page div{
 }
 div.main-page{
     left:-6rem;
-    height:21rem;
+    height:20rem;
     width:12rem;
     position: absolute;
     bottom:19rem;
-    transform-origin: 6rem 40rem;
-    -webkit-transform-origin: 6rem 40rem;
+    transform-origin: 6rem 39rem;
+    -webkit-transform-origin: 6rem 39rem;
     -webkit-transform: rotateZ(0);
     -moz-transform: rotateZ(0);
     -ms-transform: rotateZ(0);
@@ -244,10 +244,10 @@ div.planet-animals>div.hr{
     background-size: 100%;
     position: absolute;
     height:25rem;
-    width:15rem;
-    left:-7.5rem;
-    transform-origin: 7.5rem 43rem;
-    -webkit-transform-origin: 7.5rem 43rem;
+    width:17rem;
+    left:-8.5rem;
+    transform-origin: 8.5rem 43rem;
+    -webkit-transform-origin: 8.5rem 43rem;
     bottom:18rem;
     -webkit-transform: rotateZ(320deg);
     -moz-transform: rotateZ(320deg);
@@ -461,6 +461,11 @@ div.planet-animals>div.hr>h1{
     text-align: center;
     color:#FFF;
 
+}
+div.planet-animals>div.hr>img{
+    width:100%;
+    height:auto;
+    margin-top: 1rem;
 }
 div.planet-animals>div.hr>div{
     border:2px #AAAAAA solid;
